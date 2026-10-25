@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="570" viewBox="0 0 1100 570" role="img" aria-labelledby="title desc">
+<title id="title">AWS VPC Peering conceptual architecture</title><desc id="desc">Laptop connects to a public bastion in VPC A. Private App-A and App-B communicate through VPC Peering.</desc>
+<rect width="1100" height="570" fill="#ffffff"/>
+<g font-family="Arial, sans-serif" fill="#1d2939">
+<rect x="35" y="45" width="170" height="80" rx="12" fill="#f4f7fb" stroke="#aab8c8" stroke-width="2"/>
+<text x="120" y="78" font-size="19" text-anchor="middle" font-weight="bold">Your laptop</text><text x="120" y="103" font-size="14" text-anchor="middle">SSH client</text>
+<path d="M205 85 H280" stroke="#176b87" stroke-width="3" fill="none"/><path d="M270 77 L282 85 L270 93" stroke="#176b87" stroke-width="3" fill="none"/>
+<rect x="280" y="25" width="360" height="510" rx="18" fill="#f4f8ff" stroke="#4f83cc" stroke-width="2"/>
+<text x="460" y="60" font-size="24" text-anchor="middle" font-weight="bold">VPC A</text><text x="460" y="85" font-size="16" text-anchor="middle">10.10.0.0/16</text>
+<rect x="310" y="110" width="300" height="120" rx="12" fill="#fff" stroke="#aab8c8" stroke-width="2"/>
+<text x="460" y="140" font-size="18" text-anchor="middle" font-weight="bold">Public subnet</text><text x="460" y="163" font-size="15" text-anchor="middle">10.10.1.0/24</text><rect x="355" y="178" width="210" height="38" rx="8" fill="#e2f3e9" stroke="#2d8a57"/><text x="460" y="202" font-size="16" text-anchor="middle">Bastion • 10.10.1.10</text>
+<rect x="310" y="270" width="300" height="120" rx="12" fill="#fff" stroke="#aab8c8" stroke-width="2"/><text x="460" y="300" font-size="18" text-anchor="middle" font-weight="bold">Private subnet A</text><text x="460" y="323" font-size="15" text-anchor="middle">10.10.2.0/24</text><rect x="355" y="338" width="210" height="38" rx="8" fill="#e7efff" stroke="#4f83cc"/><text x="460" y="362" font-size="16" text-anchor="middle">App-A • 10.10.2.10</text>
+<rect x="730" y="25" width="335" height="510" rx="18" fill="#f4fbf8" stroke="#3e9877" stroke-width="2"/><text x="897" y="60" font-size="24" text-anchor="middle" font-weight="bold">VPC B</text><text x="897" y="85" font-size="16" text-anchor="middle">10.20.0.0/16</text>
+<rect x="760" y="270" width="275" height="120" rx="12" fill="#fff" stroke="#aab8c8" stroke-width="2"/><text x="897" y="300" font-size="18" text-anchor="middle" font-weight="bold">Private subnet B</text><text x="897" y="323" font-size="15" text-anchor="middle">10.20.1.0/24</text><rect x="793" y="338" width="208" height="38" rx="8" fill="#e2f3e9" stroke="#2d8a57"/><text x="897" y="362" font-size="16" text-anchor="middle">App-B • 10.20.1.10</text>
+<path d="M460 230 V270" stroke="#4f83cc" stroke-width="3"/><path d="M460 390 V435 H700 V390 H760" stroke="#176b87" stroke-width="4" fill="none"/><path d="M750 382 L762 390 L750 398" stroke="#176b87" stroke-width="4" fill="none"/>
+<rect x="535" y="440" width="175" height="58" rx="12" fill="#fff4d8" stroke="#c28a19" stroke-width="2"/><text x="622" y="464" font-size="17" text-anchor="middle" font-weight="bold">VPC Peering</text><text x="622" y="484" font-size="14" text-anchor="middle">Private IP traffic</text>
+<text x="550" y="548" font-size="14" text-anchor="middle" fill="#526174">Conceptual diagram • Routes and security groups are required on both sides</text>
+</g></svg>

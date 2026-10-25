@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EWB | AWS VPC Peering Project</title>
+<style>
+:root{--ink:#1d2939;--muted:#526174;--line:#dce3eb;--paper:#fff;--soft:#f4f7fb;--accent:#176b87}
+*{box-sizing:border-box}body{margin:0;font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--ink);background:var(--paper)}
+header{padding:56px 20px;background:var(--soft);border-bottom:1px solid var(--line)}main{max-width:1000px;margin:auto;padding:28px 20px 60px}
+.kicker{font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(2rem,5vw,3.4rem);line-height:1.1;margin:.4rem 0 1rem}h2{margin-top:2.4rem}p{max-width:75ch}.muted{color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin:22px 0}
+.item{border:1px solid var(--line);border-radius:12px;padding:16px;background:#fff}.item strong{display:block;margin-bottom:5px}
+code{background:#eef2f6;padding:2px 5px;border-radius:4px;overflow-wrap:anywhere}
+.diagram{width:100%;height:auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.note{border-left:4px solid var(--accent);padding:12px 16px;background:var(--soft)}
+footer{border-top:1px solid var(--line);padding:22px 20px;color:var(--muted);text-align:center}
+</style>
+</head>
+<body>
+<header><div class="kicker">Cloud networking • Student project</div><h1>AWS VPC Peering</h1>
+<p class="muted">Connect two private AWS networks, verify private IPv4 connectivity, and explain routes and security rules.</p></header>
+<main>
+<h2>Project overview</h2><p>This project follows the EWB Cloud Labs student workbook. It uses two non-overlapping VPCs and one bastion host for administration. The application instances remain private.</p>
+<div class="grid">
+<div class="item"><strong>VPC A</strong><code>10.10.0.0/16</code><br>Public bastion + private App-A</div>
+<div class="item"><strong>VPC B</strong><code>10.20.0.0/16</code><br>Private App-B; no Internet Gateway</div>
+<div class="item"><strong>Private link</strong>VPC Peering<br>Routes required on both sides</div>
+<div class="item"><strong>Security</strong>Restricted SSH and ICMP<br>No public IPs on app instances</div>
+</div>
+<h2>Conceptual architecture</h2><p class="muted">Diagram is illustrative. The actual deployment must be verified in your own AWS account.</p>
+<img class="diagram" src="architecture/architecture.svg" alt="Diagram showing laptop to bastion in VPC A, private App-A in VPC A, and private App-B in VPC B connected by VPC Peering">
+<h2>Address plan</h2>
+<div class="grid">
+<div class="item"><strong>Public subnet A</strong><code>10.10.1.0/24</code><br>Bastion: <code>10.10.1.10</code></div>
+<div class="item"><strong>Private subnet A</strong><code>10.10.2.0/24</code><br>App-A: <code>10.10.2.10</code></div>
+<div class="item"><strong>Private subnet B</strong><code>10.20.1.0/24</code><br>App-B: <code>10.20.1.10</code></div>
+</div>
+<h2>Validation checklist</h2>
+<ul><li>Capture failed App-A → App-B ping before peering routes.</li><li>Capture successful forward and reverse ping after routes and security rules.</li><li>SSH to App-B through the bastion.</li><li>Temporarily remove the App-B inbound ICMP rule, record the failure, then restore it and prove recovery.</li><li>Confirm App-A and App-B have no public IPv4 addresses.</li></ul>
+<div class="note"><strong>Safety:</strong> Do not publish AWS credentials, passwords, session tokens, or private SSH keys. Check AWS charges and clean up lab resources after saving evidence.</div>
+<h2>Project status</h2><p>This site documents the intended design. Update this section only after you have run the tests:</p><ul><li>AWS deployment: <strong>Not yet verified</strong></li><li>Connectivity tests: <strong>Pending real AWS output</strong></li><li>Resource IDs and evidence: <strong>To be added by student</strong></li></ul>
+</main><footer>EWB AWS VPC Peering • Student project documentation</footer>
+</body></html>
